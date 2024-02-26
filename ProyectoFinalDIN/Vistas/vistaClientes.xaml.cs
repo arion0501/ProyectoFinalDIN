@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalDIN.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -94,7 +95,10 @@ namespace ProyectoFinalDIN
 
         private void AñadirElemento_Click(object sender, RoutedEventArgs e)
         {
+            vistaAnyadirCliente vistaAnyadir = new vistaAnyadirCliente(this);
+            vistaAnyadir.Show();
 
+            this.Close();
         }
     }
 }

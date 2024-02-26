@@ -55,22 +55,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="componenteVista.xaml.cs">
+    <Compile Include="Vistas\componenteVista.xaml.cs">
       <DependentUpon>componenteVista.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistaMenuInicio.xaml.cs">
+    <Compile Include="Vistas\vistaAnyadirCliente.xaml.cs">
+      <DependentUpon>vistaAnyadirCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vistaMenuInicio.xaml.cs">
       <DependentUpon>vistaMenuInicio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistaClientes.xaml.cs">
+    <Compile Include="Vistas\vistaClientes.xaml.cs">
       <DependentUpon>vistaClientes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistaViajes.xaml.cs">
+    <Compile Include="Vistas\vistaViajes.xaml.cs">
       <DependentUpon>vistaViajes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistaAnyadirViaje.xaml.cs">
+    <Compile Include="Vistas\vistaAnyadirViaje.xaml.cs">
       <DependentUpon>vistaAnyadirViaje.xaml</DependentUpon>
     </Compile>
-    <Page Include="componenteVista.xaml">
+    <Page Include="Vistas\componenteVista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,19 +89,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="vistaMenuInicio.xaml">
+    <Page Include="Vistas\vistaAnyadirCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vistaClientes.xaml">
+    <Page Include="Vistas\vistaMenuInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vistaViajes.xaml">
+    <Page Include="Vistas\vistaClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vistaAnyadirViaje.xaml">
+    <Page Include="Vistas\vistaViajes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\vistaAnyadirViaje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +147,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\favion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\favion.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\ciudadFondo.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

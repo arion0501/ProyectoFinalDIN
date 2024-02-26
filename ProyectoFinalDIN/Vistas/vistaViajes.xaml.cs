@@ -65,7 +65,7 @@ namespace ProyectoFinalDIN
             override
             public String ToString()
             {
-                return (Origen + " / " + Destino + ". Transporte: " + Transporte + " , Estancia: " + Estancia + ". Fecha Ida: " + FechaIda.ToString() + " / Vuelta: " + FechaVuelta.ToString() + ". Estado: " + Estado);
+                return (Origen + " -> " + Destino + "\nTransporte: " + Transporte + "\nEstancia: " + Estancia + "\nFecha Ida: " + FechaIda.ToString() + " / Vuelta: " + FechaVuelta.ToString() + "\nEstado: " + Estado);
             }
         }
 
