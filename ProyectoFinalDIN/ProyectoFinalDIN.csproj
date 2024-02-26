@@ -133,13 +133,13 @@
     <Resource Include="loginLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="reservaViaje.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="ciudadFondo.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ciudadAvion.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favion.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
