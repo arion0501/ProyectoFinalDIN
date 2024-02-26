@@ -1,0 +1,101 @@
+﻿<Window x:Class="ProyectoFinalDIN.Ventana5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalDIN"
+        mc:Ignorable="d"
+        Title="Ventana5" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized">
+    <Grid>
+        <TextBlock FontSize="45" Text="Reserva Viaje" TextAlignment="Center" Margin="246,10,0,0" FontWeight="Bold" FontFamily="Rockwell" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="293">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFFDF76B" />
+                    <GradientStop Offset="0.3" Color="#FF79FFAC" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <Label FontSize="20" Margin="26,117,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Label.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </Label.Foreground>
+            Orígen
+        </Label>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="451,208,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="200">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run/><LineBreak/><Run Text="Fecha Vuelta"/></TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="39,211,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run/><LineBreak/><Run Text="Fecha Ida"/></TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="451,117,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="200">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run/><LineBreak/><Run Text="Destino"/></TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="26,287,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="200">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run/><LineBreak/><Run Text="Tipo Hotel"/></TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="451,288,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="200">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
+                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
+                    <GradientStop Offset="0.3" Color="#FFDB16ED" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run/><LineBreak/><Run Text="Tipo Transporte"/></TextBlock>
+        <DatePicker x:Name="dpFechaIda" HorizontalAlignment="Left" Margin="257,208,0,0" VerticalAlignment="Top" Height="13" Width="70"/>
+        <DatePicker x:Name="dpFechaVuelta" HorizontalAlignment="Left" Margin="664,208,0,0" VerticalAlignment="Top" Width="75" Height="13"/>
+        <ComboBox x:Name="cbOrigen" HorizontalAlignment="Left" Margin="246,117,0,0" VerticalAlignment="Top" Width="111" Height="46"/>
+        <ComboBox x:Name="cbTransporte" HorizontalAlignment="Left" Margin="664,287,0,0" VerticalAlignment="Top" Width="113" Height="46"/>
+        <ComboBox x:Name="cbHotel" HorizontalAlignment="Left" Margin="246,288,0,0" VerticalAlignment="Top" Width="111" Height="46"/>
+        <ComboBox x:Name="cbDestino" HorizontalAlignment="Left" Margin="664,117,0,0" VerticalAlignment="Top" Width="113" Height="46"/>
+
+        <Button x:Name="reservaViaje" Content="Reservar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="371,404,0,0" HorizontalAlignment="Left" Width="85" VerticalAlignment="Top" Height="30"  Click="ReservarButton_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF707070" Opacity="0.85"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF707070"/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF808080"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF404040"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
