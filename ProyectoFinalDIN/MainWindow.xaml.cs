@@ -24,11 +24,22 @@ namespace ProyectoFinalDIN
         public MainWindow()
         {
             InitializeComponent();
+
+            Loaded += Grid_Loaded;
+            KeyDown += MainWindow_KeyDown;
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             TextBoxDNI.Text = "Introduzca DNI";
+        }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(this, e);
+            }
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -72,11 +83,11 @@ namespace ProyectoFinalDIN
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string dniIngresado = TextBoxDNI.Text;
-            Ventana2 ventana2 = new Ventana2();
+            vistaMenuInicio menuInicio = new vistaMenuInicio();
 
             if (ValidarDNI(dniIngresado))
             {
-                ventana2.Show();
+                menuInicio.Show();
                 this.Close();
             }
             else

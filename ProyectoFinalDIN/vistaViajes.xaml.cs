@@ -17,9 +17,9 @@ namespace ProyectoFinalDIN
     /// <summary>
     /// Lógica de interacción para Ventana4.xaml
     /// </summary>
-    public partial class Ventana4 : Window
+    public partial class vistaViajes : Window
     {
-        public Ventana4()
+        public vistaViajes()
         {
             InitializeComponent();
             listViajes.Items.Add(new Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"));
@@ -71,30 +71,49 @@ namespace ProyectoFinalDIN
 
         private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
         {
-            Ventana2 ventana2 = new Ventana2();
-            ventana2.Show();
+            vistaMenuInicio vistaMenu = new vistaMenuInicio();
+            vistaMenu.Show();
 
             this.Close();
         }
 
-        private void listViajes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(listViajes != null)
-            {
-                MessageBox.Show("La información del viaje seleccionado es: " + listViajes.SelectedItem.ToString());
-            }
-        }
-
         private void AñadirElemento_Click(object sender, RoutedEventArgs e)
         {
-            Ventana5 ventana5 = new Ventana5(this);
-            ventana5.Show();
+            vistaAnyadirViaje vistaAnyadir = new vistaAnyadirViaje(this);
+            vistaAnyadir.Show();
+            
+            this.Close();
         }
 
         public void ActualizarInformacion(string origen, string destino, string transporte, string estancia, DateTime fechaIda, DateTime fechaVuelta, string estado)
         {
             Viaje nuevoViaje = new Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
             listViajes.Items.Add(nuevoViaje);
+        }
+
+        private void visualizarInfoViaje_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViajes.SelectedItem != null)
+            {
+                Viaje viajeSeleccionado = (Viaje)listViajes.SelectedItem;
+                MessageBox.Show("Información del viaje seleccionado:\n" + viajeSeleccionado.ToString(), "Información del Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un viaje para ver la información.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BorrarElemento_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViajes.SelectedItem != null)
+            {
+                listViajes.Items.Remove(listViajes.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un viaje para borrar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

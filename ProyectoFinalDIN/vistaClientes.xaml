@@ -1,0 +1,140 @@
+﻿<Window x:Class="ProyectoFinalDIN.vistaClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalDIN"
+        mc:Ignorable="d"
+        Title="Gestión Clientes" Height="920" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Width="920" Height="920">
+        <Grid.Background>
+            <ImageBrush ImageSource="/ciudadFondo.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label Content="Clientes" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Height="36" Width="392" Background="#FF83C7B9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Constantia" FontSize="20"/>
+
+        <ComboBox x:Name="clientesCB" Width="392" Height="49" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,143,0,0" Background="#FFB55D5D" BorderBrush="#FF130909"/>
+
+        <Button x:Name="BorrarElemento" Content="Borrar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="488,375,0,0" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Height="54"  Click="EliminarElemento_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF3E60E8" Opacity="1"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF707070"/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF808080"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF404040"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="volverButton" Content="Volver" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,572,0,0" HorizontalAlignment="Center" Width="176" VerticalAlignment="Top" Height="54" Click="VolverAVentanaAnterior_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF5CFF84" Opacity="1"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF707070"/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF808080"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF404040"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="AnyadirElemento" Content="Añadir" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="288,375,0,0" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Height="54"  Click="AñadirElemento_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF3E60E8" Opacity="1"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF707070"/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF808080"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF404040"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="visualizarInfoCliente" Content="Visualizar información Cliente" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,300,0,0" HorizontalAlignment="Center" Width="344" VerticalAlignment="Top" Height="54"  Click="visualizarInfoCliente_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF3E60E8" Opacity="1"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF707070"/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF808080"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FF404040"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+    </Grid>
+</Window>

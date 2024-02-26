@@ -58,17 +58,17 @@
     <Compile Include="componenteVista.xaml.cs">
       <DependentUpon>componenteVista.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventana2.xaml.cs">
-      <DependentUpon>Ventana2.xaml</DependentUpon>
+    <Compile Include="vistaMenuInicio.xaml.cs">
+      <DependentUpon>vistaMenuInicio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventana3.xaml.cs">
-      <DependentUpon>Ventana3.xaml</DependentUpon>
+    <Compile Include="vistaClientes.xaml.cs">
+      <DependentUpon>vistaClientes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventana4.xaml.cs">
-      <DependentUpon>Ventana4.xaml</DependentUpon>
+    <Compile Include="vistaViajes.xaml.cs">
+      <DependentUpon>vistaViajes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventana5.xaml.cs">
-      <DependentUpon>Ventana5.xaml</DependentUpon>
+    <Compile Include="vistaAnyadirViaje.xaml.cs">
+      <DependentUpon>vistaAnyadirViaje.xaml</DependentUpon>
     </Compile>
     <Page Include="componenteVista.xaml">
       <SubType>Designer</SubType>
@@ -86,19 +86,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Ventana2.xaml">
+    <Page Include="vistaMenuInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventana3.xaml">
+    <Page Include="vistaClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventana4.xaml">
+    <Page Include="vistaViajes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventana5.xaml">
+    <Page Include="vistaAnyadirViaje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,25 +130,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fondoInicio.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="loginLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fondoGestion.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="infoClientes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="infoViajes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="reservaViaje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ciudadFondo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ciudadAvion.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,25 +17,25 @@ namespace ProyectoFinalDIN
     /// <summary>
     /// Lógica de interacción para Ventana2.xaml
     /// </summary>
-    public partial class Ventana2 : Window
+    public partial class vistaMenuInicio : Window
     {
-        public Ventana2()
+        public vistaMenuInicio()
         {
             InitializeComponent();
         }
 
         private void gestionCliente_Click(object sender, RoutedEventArgs e)
         {
-            Ventana3 ventana3 = new Ventana3();
-            ventana3.Show();
+            vistaClientes vClientes = new vistaClientes();
+            vClientes.Show();
 
             this.Close();
         }
 
         private void gestionViaje_Click(object sender, RoutedEventArgs e)
         {
-            Ventana4 ventana4 = new Ventana4();
-            ventana4.Show();
+            vistaViajes v_Viajes = new vistaViajes();
+            v_Viajes.Show();
 
             this.Close();
         }

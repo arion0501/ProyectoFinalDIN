@@ -5,11 +5,11 @@ using System.Windows.Controls;
 
 namespace ProyectoFinalDIN
 {
-    public partial class Ventana5 : Window
+    public partial class vistaAnyadirViaje : Window
     {
-        private Ventana4 ventanaPadre;
+        private vistaViajes ventanaPadre;
 
-        public Ventana5(Ventana4 ventanaPadre)
+        public vistaAnyadirViaje(vistaViajes ventanaPadre)
         {
             InitializeComponent();
             this.ventanaPadre = ventanaPadre;
@@ -77,6 +77,14 @@ namespace ProyectoFinalDIN
             Random random = new Random();
             List<string> estados = new List<string> { "Aprobado", "Cancelado", "Pospuesto" };
             return estados[random.Next(estados.Count)];
+        }
+
+        private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
+        {
+            vistaViajes vistaViajes = new vistaViajes();
+            vistaViajes.Show();
+
+            this.Close();
         }
     }
 }

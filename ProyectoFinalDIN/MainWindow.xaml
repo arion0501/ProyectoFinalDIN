@@ -5,23 +5,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ProyectoFinalDIN"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="519" Width="772" Title="MainWindow" WindowState="Maximized" ResizeMode="NoResize">
-    <Grid Loaded="Grid_Loaded">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Grid.Background>
-                <ImageBrush ImageSource="/fondoInicio.png" Stretch="UniformToFill" />
-            </Grid.Background>
-        </Grid>
-
+    mc:Ignorable="d" Height="920" Width="920" Title="MainWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Height="920" Width="920">
+        <Grid.Background>
+            <ImageBrush ImageSource="/ciudadFondo.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
         <Rectangle Stroke="Black" OpacityMask="#FF1D1515" HorizontalAlignment="Center" Width="382" VerticalAlignment="Center" Height="383">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FF0C0A0A" Opacity="0.75"/>
@@ -38,14 +27,7 @@
 
         <Image Margin="0,31,0,397" Source="/loginLogo.png" Stretch="Fill" HorizontalAlignment="Center" Height="75" Width="96"/>
 
-        <TextBlock FontSize="30" Text="Iniciar Sesión" TextAlignment="Center" Height="62" Width="292" Margin="249,114,231,327" FontWeight="Bold" FontFamily="Rockwell">
-            <TextBlock.Foreground>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
-                    <GradientStop Offset="0.7" Color="#FFE8F5F9" />
-                    <GradientStop Offset="0.3" Color="#FFC11BD0" />
-                </LinearGradientBrush>
-            </TextBlock.Foreground>
-        </TextBlock>
+        <TextBlock FontSize="30" Text="Iniciar Sesión" TextAlignment="Center" Height="62" Width="292" Margin="249,114,231,327" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF4089FF"></TextBlock>
 
     </Grid>
 </Window>
