@@ -95,10 +95,16 @@ namespace ProyectoFinalDIN
 
         private void AñadirElemento_Click(object sender, RoutedEventArgs e)
         {
-            vistaAnyadirCliente vistaAnyadir = new vistaAnyadirCliente(this);
-            vistaAnyadir.Show();
+            this.IsEnabled = false;
 
-            this.Close();
+            vistaAnyadirCliente vistaAnyadir = new vistaAnyadirCliente(this);
+            vistaAnyadir.Closed += VistaAnyadir_Closed;
+            vistaAnyadir.Show();
+        }
+
+        private void VistaAnyadir_Closed(object sender, EventArgs e)
+        {
+            this.IsEnabled = true;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace ProyectoFinalDIN.Vistas
             InitializeComponent();
             this.ventanaPadre = ventanaPadre;
         }
+
         private void btnGuardarCliente_Click(object sender, RoutedEventArgs e)
         {
             string dni = txtDni.Text;
@@ -38,16 +39,14 @@ namespace ProyectoFinalDIN.Vistas
             string apellidos = txtApellidos.Text;
             string estado = CBAlta.IsChecked.GetValueOrDefault() ? "Dado de Alta" : "No Dado de Alta";
 
-            // Validar que se ingresen todos los campos necesarios
             if (!string.IsNullOrWhiteSpace(dni) && !string.IsNullOrWhiteSpace(nombre) && !string.IsNullOrWhiteSpace(apellidos))
             {
-                // Crear un nuevo objeto Cliente con los datos ingresados
                 vistaClientes.Cliente nuevoCliente = new vistaClientes.Cliente(dni, nombre, apellidos, estado);
 
-                // Agregar el nuevo cliente a la lista en la ventana padre
                 ventanaPadre.clientesCB.Items.Add(nuevoCliente);
 
-                // Cerrar la ventana de añadir cliente
+                MessageBox.Show("Cliente añadido con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 this.Close();
             }
             else
