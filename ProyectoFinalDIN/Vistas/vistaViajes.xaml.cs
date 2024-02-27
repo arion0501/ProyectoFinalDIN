@@ -22,19 +22,15 @@ namespace ProyectoFinalDIN
     /// </summary>
     public partial class vistaViajes : Window
     {
-        private List<ModeloGlobal.Cliente> ListaClientes;
-
         public vistaViajes()
         {
             InitializeComponent();
-            listViajes.Items.Add(new ModeloGlobal.Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"));
-            listViajes.Items.Add(new ModeloGlobal.Viaje("Valencia", "Barcelona", "Tren", "Apartamento", DateTime.Now, DateTime.Now.AddDays(5), "Pospuesto"));
-            listViajes.Items.Add(new ModeloGlobal.Viaje("Madrid", "Galicia", "Helicóptero", "Villa", DateTime.Now, DateTime.Now.AddDays(2), "Aprobado"));
-            listViajes.Items.Add(new ModeloGlobal.Viaje("Ibiza", "Roma", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(1), "Aprobado"));
-            listViajes.Items.Add(new ModeloGlobal.Viaje("Dublín", "Edinburgo", "Ave", "Apartamento", DateTime.Now, DateTime.Now.AddDays(6), "Cancelado"));
+            listViajes.Items.Add(new Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"));
+            listViajes.Items.Add(new Viaje("Valencia", "Barcelona", "Tren", "Apartamento", DateTime.Now, DateTime.Now.AddDays(5), "Pospuesto"));
+            listViajes.Items.Add(new Viaje("Madrid", "Galicia", "Helicóptero", "Villa", DateTime.Now, DateTime.Now.AddDays(2), "Aprobado"));
+            listViajes.Items.Add(new Viaje("Ibiza", "Roma", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(1), "Aprobado"));
+            listViajes.Items.Add(new Viaje("Dublín", "Edinburgo", "Ave", "Apartamento", DateTime.Now, DateTime.Now.AddDays(6), "Cancelado"));
         }
-
-       
 
         private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
         {
@@ -60,20 +56,15 @@ namespace ProyectoFinalDIN
 
         public void ActualizarInformacion(string origen, string destino, string transporte, string estancia, DateTime fechaIda, DateTime fechaVuelta, string estado)
         {
-            ModeloGlobal.Viaje nuevoViaje = new ModeloGlobal.Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
+            Viaje nuevoViaje = new Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
             listViajes.Items.Add(nuevoViaje);
-
-            foreach (ModeloGlobal.Cliente cliente in ListaClientes)
-            {
-                cliente.Viajes.Add(nuevoViaje);
-            }
         }
 
         private void visualizarInfoViaje_Click(object sender, RoutedEventArgs e)
         {
             if (listViajes.SelectedItem != null)
             {
-                ModeloGlobal.Viaje viajeSeleccionado = (ModeloGlobal.Viaje)listViajes.SelectedItem;
+                Viaje viajeSeleccionado = (Viaje)listViajes.SelectedItem;
                 MessageBox.Show("Información del viaje seleccionado:\n" + viajeSeleccionado.ToString(), "Información del Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else

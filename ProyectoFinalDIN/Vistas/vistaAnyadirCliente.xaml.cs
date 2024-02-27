@@ -66,7 +66,7 @@ namespace ProyectoFinalDIN.Vistas
             if (!string.IsNullOrWhiteSpace(dni) && !string.IsNullOrWhiteSpace(nombre) && !string.IsNullOrWhiteSpace(apellidos))
                 {
                 if (ValidarDNI(dni)) { 
-                    ModeloGlobal.Cliente nuevoCliente = new ModeloGlobal.Cliente(dni, nombre, apellidos, estado);
+                    Cliente nuevoCliente = new Cliente(dni, nombre, apellidos, estado);
 
                 ventanaPadre.clientesCB.Items.Add(nuevoCliente);
 

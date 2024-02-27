@@ -55,7 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Modelos\ModeloGlobal.cs" />
+    <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\Viaje.cs" />
     <Compile Include="Vistas\componenteVista.xaml.cs">
       <DependentUpon>componenteVista.xaml</DependentUpon>
     </Compile>
@@ -67,6 +68,9 @@
     </Compile>
     <Compile Include="Vistas\vistaClientes.xaml.cs">
       <DependentUpon>vistaClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vistaPago.xaml.cs">
+      <DependentUpon>vistaPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\vistaViajes.xaml.cs">
       <DependentUpon>vistaViajes.xaml</DependentUpon>
@@ -99,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\vistaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\vistaPago.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,9 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Vistas\favion.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\favion.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Vistas\ciudadFondo.jpeg" />

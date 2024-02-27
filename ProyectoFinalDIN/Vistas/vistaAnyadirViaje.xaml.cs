@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalDIN.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,6 +9,7 @@ namespace ProyectoFinalDIN
     public partial class vistaAnyadirViaje : Window
     {
         private vistaViajes ventanaPadre;
+        private vistaPago vistaPago;
 
         public vistaAnyadirViaje(vistaViajes ventanaPadre)
         {
@@ -67,9 +69,24 @@ namespace ProyectoFinalDIN
                 MessageBox.Show("Reserva realizada con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 ventanaPadre.ActualizarInformacion(origen, destino, transporte, estancia, fechaIda.Value, fechaVuelta.Value, ObtenerEstadoAleatorio());
-
-                this.Close();
             }
+            Random random = new Random();
+            int costoReserva = random.Next(200, 1501);
+
+            string mensaje = $"El coste de la reserva es de {costoReserva}€, pulsa aceptar para redirigirte al pago";
+            MessageBoxResult result = MessageBox.Show(mensaje, "Registrar Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            if (result == MessageBoxResult.OK)
+            {
+                this.Close();
+                AbrirVentanaPago(costoReserva);
+            }
+        }
+
+        private void AbrirVentanaPago(int costoReserva)
+        {
+            vistaPago vPago = new vistaPago(costoReserva);
+            vPago.ShowDialog();
         }
 
         private string ObtenerEstadoAleatorio()

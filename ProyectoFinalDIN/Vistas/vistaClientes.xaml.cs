@@ -22,19 +22,47 @@ namespace ProyectoFinalDIN
     /// </summary>
     public partial class vistaClientes : Window
     {
+        private List<Viaje> viajesDisponibles;
+
         public vistaClientes()
         {
             InitializeComponent();
-            this.DataContext = this;
 
-            this.listaClientes.Add(new ModeloGlobal.Cliente("06016039k", "Marcos", "Garcia-Seco", "Dado de Alta"));
-            this.listaClientes.Add(new ModeloGlobal.Cliente("44295375s", "Carlos", "Guemes", "No dado de Alta"));
-            this.listaClientes.Add(new ModeloGlobal.Cliente("54336198w", "Laura", "Pascal", "No Dado de Alta"));
-            this.listaClientes.Add(new ModeloGlobal.Cliente("73669361h", "Luis", "Rodriguez", "No dado de Alta"));
-            this.listaClientes.Add(new ModeloGlobal.Cliente("02237469z", "Ruben", "Gallardo", "Dado de Alta"));
+            viajesDisponibles = new List<Viaje>
+            {
+                new Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"),
+                new Viaje("Valencia", "Barcelona", "Tren", "Apartamento", DateTime.Now, DateTime.Now.AddDays(5), "Pospuesto"),
+                new Viaje("Madrid", "Galicia", "Helicóptero", "Villa", DateTime.Now, DateTime.Now.AddDays(2), "Aprobado"),
+                new Viaje("Ibiza", "Roma", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(1), "Aprobado"),
+                new Viaje("Dublín", "Edinburgo", "Ave", "Apartamento", DateTime.Now, DateTime.Now.AddDays(6), "Cancelado")
+            };
+
+            List<Cliente> clientes = new List<Cliente>
+            {
+                new Cliente("06016039k", "Marcos", "Garcia-Seco", "Dado de Alta"),
+                new Cliente("44295375s", "Carlos", "Guemes", "No dado de Alta"),
+                new Cliente("54336198w", "Laura", "Pascal", "No Dado de Alta"),
+                new Cliente("73669361h", "Luis", "Rodriguez", "No dado de Alta"),
+                new Cliente("02237469z", "Ruben", "Gallardo", "Dado de Alta")
+            };
+
+            foreach (Cliente cliente in clientes)
+            {
+                Random random = new Random();
+                if (viajesDisponibles.Count > 0)
+                {
+                    int indexViajeAleatorio = random.Next(viajesDisponibles.Count);
+                    Viaje viajeAsignado = viajesDisponibles[indexViajeAleatorio];
+                    cliente.AñadirViaje(viajeAsignado);
+                    viajesDisponibles.RemoveAt(indexViajeAleatorio);
+                }
+            }
+
+            foreach (Cliente cliente in clientes)
+            {
+                this.clientesCB.Items.Add(cliente);
+            }
         }
-
-        private List<ModeloGlobal.Cliente> listaClientes = new List<ModeloGlobal.Cliente>();
 
         private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
         {
@@ -46,21 +74,26 @@ namespace ProyectoFinalDIN
 
         private void visualizarInfoCliente_Click(object sender, RoutedEventArgs e)
         {
-            if (listaClientes.Any())
+            if (clientesCB.SelectedItem != null)
             {
-                if (clientesCB.SelectedItem != null)
+                Cliente clienteSeleccionado = (Cliente)clientesCB.SelectedItem;
+
+                string infoCliente = $"Información del cliente seleccionado:\n{clienteSeleccionado}\n\nViajes:\n";
+
+                if (clienteSeleccionado.Viajes.Count > 0)
                 {
-                    ModeloGlobal.Cliente clienteSeleccionado = (ModeloGlobal.Cliente)clientesCB.SelectedItem;
-                    MessageBox.Show("Información del cliente seleccionado:\n" + clienteSeleccionado.ToString() + "\n\nViajes:\n" + string.Join("\n", clienteSeleccionado.Viajes.Select(v => v.ToString())), "Información del Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+                    infoCliente += string.Join("\n", clienteSeleccionado.Viajes.Select(v => v.ToString()));
                 }
                 else
                 {
-                    MessageBox.Show("Selecciona un cliente para ver la información.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    infoCliente += "Este cliente no tiene viajes asignados.";
                 }
+
+                MessageBox.Show(infoCliente, "Información del Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("La lista de clientes está vacía.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Selecciona un cliente para ver la información.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -76,6 +109,10 @@ namespace ProyectoFinalDIN
                 {
                     clientesCB.Items.Remove(clientesCB.SelectedItem);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un cliente para borrar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

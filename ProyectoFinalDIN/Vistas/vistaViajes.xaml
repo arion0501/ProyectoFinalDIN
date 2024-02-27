@@ -107,7 +107,7 @@
             </Button.Style>
         </Button>
 
-        <Button x:Name="visualizarInfoViaje" Content="Información viaje seleccionado" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,327,0,0" HorizontalAlignment="Center" Width="344" VerticalAlignment="Top" Height="54"  Click="visualizarInfoViaje_Click">
+        <Button x:Name="visualizarInfoViaje" Content="Información viaje seleccionado" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,372,0,0" HorizontalAlignment="Center" Width="344" VerticalAlignment="Top" Height="54"  Click="visualizarInfoViaje_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FF70E3E6" Opacity="1"/>
             </Button.Background>
