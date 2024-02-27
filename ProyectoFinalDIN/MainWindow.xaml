@@ -5,9 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ProyectoFinalDIN"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Icon="favion.ico" Height="920" Width="920" 
+    mc:Ignorable="d" Icon="favion.ico" Height="700" Width="920" 
     Title="Iniciar Sesión" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid Height="920" Width="920">
+    <Grid Height="700" Width="920">
         <Grid.Background>
             <ImageBrush ImageSource="/ciudadFondo.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>

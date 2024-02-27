@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDIN"
         mc:Ignorable="d" Icon="favion.ico"
-        Title="Gestión Clientes" Height="920" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid Width="920" Height="920">
+        Title="Gestión Clientes" Height="700" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Width="920" Height="700">
         <Grid.Background>
             <ImageBrush ImageSource="/ciudadFondo.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label Content="Clientes" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Height="36" Width="392" Background="#FF83C7B9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Constantia" FontSize="20"/>
 
-        <ComboBox x:Name="clientesCB" Width="392" Height="49" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,143,0,0" Background="#FFB55D5D" BorderBrush="#FF130909"/>
+        <ComboBox x:Name="clientesCB" ItemsSource="{Binding ListaClientes}" Width="392" Height="49" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,143,0,0" Background="#FFB55D5D" BorderBrush="#FF130909"/>
 
         <Button x:Name="BorrarElemento" Content="Borrar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="488,375,0,0" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Height="54"  Click="EliminarElemento_Click">
             <Button.Background>

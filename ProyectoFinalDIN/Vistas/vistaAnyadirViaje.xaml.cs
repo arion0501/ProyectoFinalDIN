@@ -81,10 +81,14 @@ namespace ProyectoFinalDIN
 
         private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
         {
-            vistaViajes vistaViajes = new vistaViajes();
-            vistaViajes.Show();
+            componenteVista componente = new componenteVista();
 
-            this.Close();
+            bool confirmacion = componente.RealizarAccion();
+
+            if (confirmacion)
+            {
+                this.Close();
+            }
         }
     }
 }

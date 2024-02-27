@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDIN"
         mc:Ignorable="d" Icon="favion.ico"
-        Title="Gestión Viajes" Height="920" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid Width="920" Height="920">
+        Title="Gestión Viajes" Height="700" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Width="920" Height="700">
         <Grid.Background>
             <ImageBrush ImageSource="/ciudadAvion.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>

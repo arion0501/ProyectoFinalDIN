@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Modelos\ModeloGlobal.cs" />
     <Compile Include="Vistas\componenteVista.xaml.cs">
       <DependentUpon>componenteVista.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoFinalDIN.Modelos;
+using ProyectoFinalDIN.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static ProyectoFinalDIN.vistaClientes;
 
 namespace ProyectoFinalDIN
 {
@@ -19,55 +22,19 @@ namespace ProyectoFinalDIN
     /// </summary>
     public partial class vistaViajes : Window
     {
+        private List<ModeloGlobal.Cliente> ListaClientes;
+
         public vistaViajes()
         {
             InitializeComponent();
-            listViajes.Items.Add(new Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"));
-            listViajes.Items.Add(new Viaje("Valencia", "Barcelona", "Tren", "Apartamento", DateTime.Now, DateTime.Now.AddDays(5), "Pospuesto"));
-            listViajes.Items.Add(new Viaje("Madrid", "Galicia", "Helicóptero", "Villa", DateTime.Now, DateTime.Now.AddDays(2), "Aprobado"));
+            listViajes.Items.Add(new ModeloGlobal.Viaje("Paris", "Lisboa", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(4), "Cancelado"));
+            listViajes.Items.Add(new ModeloGlobal.Viaje("Valencia", "Barcelona", "Tren", "Apartamento", DateTime.Now, DateTime.Now.AddDays(5), "Pospuesto"));
+            listViajes.Items.Add(new ModeloGlobal.Viaje("Madrid", "Galicia", "Helicóptero", "Villa", DateTime.Now, DateTime.Now.AddDays(2), "Aprobado"));
+            listViajes.Items.Add(new ModeloGlobal.Viaje("Ibiza", "Roma", "Avión", "Hotel", DateTime.Now, DateTime.Now.AddDays(1), "Aprobado"));
+            listViajes.Items.Add(new ModeloGlobal.Viaje("Dublín", "Edinburgo", "Ave", "Apartamento", DateTime.Now, DateTime.Now.AddDays(6), "Cancelado"));
         }
 
-        public class Viaje
-        {
-            public String Origen
-            { get; set; }
-
-            public String Destino
-            { get; set; }
-
-            public String Transporte
-            { get; set; }
-
-            public String Estancia
-            { get; set; }
-
-            public DateTime FechaIda
-            { get; set; }
-
-            public DateTime FechaVuelta
-            { get; set; }
-
-            public String Estado
-            { get; set; }
-
-            public Viaje(string origen, string destino, string transporte, string estancia, DateTime fechaida, DateTime fechavuelta, String estado)
-            {
-
-                Origen = origen;
-                Destino = destino;
-                Transporte = transporte;
-                Estancia = estancia;
-                FechaIda = fechaida;
-                FechaVuelta = fechavuelta;
-                Estado = estado;
-            }
-
-            override
-            public String ToString()
-            {
-                return (Origen + " -> " + Destino + "\nTransporte: " + Transporte + "\nEstancia: " + Estancia + "\nFecha Ida: " + FechaIda.ToString() + " / Vuelta: " + FechaVuelta.ToString() + "\nEstado: " + Estado);
-            }
-        }
+       
 
         private void VolverAVentanaAnterior_Click(object sender, RoutedEventArgs e)
         {
@@ -79,23 +46,34 @@ namespace ProyectoFinalDIN
 
         private void AñadirElemento_Click(object sender, RoutedEventArgs e)
         {
+            this.IsEnabled = false;
             vistaAnyadirViaje vistaAnyadir = new vistaAnyadirViaje(this);
+            vistaAnyadir.Closed += VistaAnyadir_Closed;
             vistaAnyadir.Show();
-            
-            this.Close();
+        }
+
+
+        private void VistaAnyadir_Closed(object sender, EventArgs e)
+        {
+            this.IsEnabled = true;
         }
 
         public void ActualizarInformacion(string origen, string destino, string transporte, string estancia, DateTime fechaIda, DateTime fechaVuelta, string estado)
         {
-            Viaje nuevoViaje = new Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
+            ModeloGlobal.Viaje nuevoViaje = new ModeloGlobal.Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
             listViajes.Items.Add(nuevoViaje);
+
+            foreach (ModeloGlobal.Cliente cliente in ListaClientes)
+            {
+                cliente.Viajes.Add(nuevoViaje);
+            }
         }
 
         private void visualizarInfoViaje_Click(object sender, RoutedEventArgs e)
         {
             if (listViajes.SelectedItem != null)
             {
-                Viaje viajeSeleccionado = (Viaje)listViajes.SelectedItem;
+                ModeloGlobal.Viaje viajeSeleccionado = (ModeloGlobal.Viaje)listViajes.SelectedItem;
                 MessageBox.Show("Información del viaje seleccionado:\n" + viajeSeleccionado.ToString(), "Información del Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
@@ -108,7 +86,14 @@ namespace ProyectoFinalDIN
         {
             if (listViajes.SelectedItem != null)
             {
-                listViajes.Items.Remove(listViajes.SelectedItem);
+                componenteVista componente = new componenteVista();
+
+                bool confirmacion = componente.RealizarAccion();
+
+                if (confirmacion)
+                {
+                    listViajes.Items.Remove(listViajes.SelectedItem);
+                }
             }
             else
             {

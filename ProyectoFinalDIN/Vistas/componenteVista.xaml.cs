@@ -24,11 +24,12 @@ namespace ProyectoFinalDIN
         {
             InitializeComponent();
         }
-    
-        public void realizarAccion()
-        {
-            MessageBox.Show("Usuario borrado con éxito");
-        }
 
+        public bool RealizarAccion()
+        {
+            MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea realizar esta acción?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            return result == MessageBoxResult.Yes;
+        }
     }
 }

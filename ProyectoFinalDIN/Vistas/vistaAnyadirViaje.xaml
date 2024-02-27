@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDIN"
         mc:Ignorable="d" Icon="favion.ico"
-        Title="Añadir Viaje" Height="920" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid Width="920" Height="920">
+        Title="Añadir Viaje" Height="700" Width="920" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Width="920" Height="700">
         <Grid.Background>
             <ImageBrush ImageSource="/ciudadAvion.jpeg"/>
         </Grid.Background>
-        <Rectangle Height="553" Margin="0,99,0,0" Stroke="Black" Width="900" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Rectangle Height="304" Margin="0,99,0,0" Stroke="Black" Width="900" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FF70E3E6" Opacity="0.6"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock FontSize="45" Text="Reserva Viaje" TextAlignment="Center" Margin="0,0,0,780" FontWeight="Bold" FontFamily="Rockwell" Height="57" Width="342">
+        <TextBlock FontSize="45" Text="Reserva Viaje" TextAlignment="Center" Margin="289,24,289,619" FontWeight="Bold" FontFamily="Rockwell" Height="57" Width="342">
             <TextBlock.Foreground>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0.7,0">
                     <GradientStop Offset="0.7" Color="#FFFDF76B" />
@@ -27,24 +27,24 @@
 
         <Label FontSize="20" Margin="26,140,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Orígen"/>
 
-        <Label FontSize="20" Margin="460,350,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Fecha Vuelta"/>
+        <Label FontSize="20" Margin="459,230,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Fecha Vuelta"/>
 
-        <Label FontSize="20" Margin="26,350,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Fecha Ida"/>
+        <Label FontSize="20" Margin="26,226,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Fecha Ida"/>
 
         <Label FontSize="20"  Margin="459,142,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Destino"/>
 
-        <Label FontSize="20" Margin="26,522,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Tipo Hotel"/>
+        <Label FontSize="20" Margin="26,315,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Tipo Hotel"/>
 
-        <Label FontSize="20" Margin="460,522,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Tipo Transporte"/>
+        <Label FontSize="20" Margin="459,317,0,0" FontWeight="Bold" FontFamily="Rockwell" Background="#FF0A57AD" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Tipo Transporte"/>
 
-        <DatePicker x:Name="dpFechaIda" HorizontalAlignment="Left" Margin="246,354,0,0" VerticalAlignment="Top" Height="46" Width="157"/>
-        <DatePicker x:Name="dpFechaVuelta" HorizontalAlignment="Left" Margin="681,354,0,0" VerticalAlignment="Top" Width="152" Height="46"/>
+        <DatePicker x:Name="dpFechaIda" HorizontalAlignment="Left" Margin="246,226,0,0" VerticalAlignment="Top" Height="46" Width="157"/>
+        <DatePicker x:Name="dpFechaVuelta" HorizontalAlignment="Left" Margin="681,230,0,0" VerticalAlignment="Top" Width="152" Height="46"/>
         <ComboBox x:Name="cbOrigen" HorizontalAlignment="Left" Margin="246,140,0,0" VerticalAlignment="Top" Width="176" Height="50"/>
-        <ComboBox x:Name="cbTransporte" HorizontalAlignment="Left" Margin="681,522,0,0" VerticalAlignment="Top" Width="176" Height="44"/>
-        <ComboBox x:Name="cbHotel" HorizontalAlignment="Left" Margin="246,522,0,0" VerticalAlignment="Top" Width="176" Height="47"/>
+        <ComboBox x:Name="cbTransporte" HorizontalAlignment="Left" Margin="681,318,0,0" VerticalAlignment="Top" Width="176" Height="44"/>
+        <ComboBox x:Name="cbHotel" HorizontalAlignment="Left" Margin="246,315,0,0" VerticalAlignment="Top" Width="176" Height="47"/>
         <ComboBox x:Name="cbDestino" HorizontalAlignment="Left" Margin="681,142,0,0" VerticalAlignment="Top" Width="176" Height="46"/>
 
-        <Button x:Name="reservaViaje" Content="Reservar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,686,0,0" HorizontalAlignment="Center" Width="280" VerticalAlignment="Top" Height="63"  Click="ReservarButton_Click">
+        <Button x:Name="reservaViaje" Content="Reservar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" HorizontalAlignment="Center" Width="280" VerticalAlignment="Top" Height="63"  Click="ReservarButton_Click" Margin="0,425,0,0">
             <Button.Background>
                 <SolidColorBrush Color="#FF70E3E6" Opacity="1"/>
             </Button.Background>
@@ -74,7 +74,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="volverButton" Content="Volver" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,785,0,0" HorizontalAlignment="Center" Width="176" VerticalAlignment="Top" Height="54" Click="VolverAVentanaAnterior_Click">
+        <Button x:Name="volverButton" Content="Volver" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="0,521,0,0" HorizontalAlignment="Center" Width="176" VerticalAlignment="Top" Height="54" Click="VolverAVentanaAnterior_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FF5CFF84" Opacity="1"/>
             </Button.Background>
