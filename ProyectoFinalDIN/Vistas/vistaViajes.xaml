@@ -15,7 +15,7 @@
 
         <ListBox x:Name="listViajes" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="516" Height="134" Margin="0,171,0,0"/>
 
-        <Button x:Name="AñadirElemento" Content="Añadir" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="288,453,0,0" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Height="54"  Click="AñadirElemento_Click">
+        <Button x:Name="AñadirElemento" Content="Añadir" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="288,446,0,0" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Height="54"  Click="AñadirElemento_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FF70E3E6" Opacity="1"/>
             </Button.Background>

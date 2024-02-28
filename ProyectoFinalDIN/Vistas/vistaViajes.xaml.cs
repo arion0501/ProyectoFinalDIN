@@ -22,6 +22,8 @@ namespace ProyectoFinalDIN
     /// </summary>
     public partial class vistaViajes : Window
     {
+        vistaAnyadirViaje vistaAnyadir;
+
         public vistaViajes()
         {
             InitializeComponent();
@@ -43,7 +45,7 @@ namespace ProyectoFinalDIN
         private void AñadirElemento_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
-            vistaAnyadirViaje vistaAnyadir = new vistaAnyadirViaje(this);
+            vistaAnyadir = new vistaAnyadirViaje(this);
             vistaAnyadir.Closed += VistaAnyadir_Closed;
             vistaAnyadir.Show();
         }
@@ -57,7 +59,14 @@ namespace ProyectoFinalDIN
         public void ActualizarInformacion(string origen, string destino, string transporte, string estancia, DateTime fechaIda, DateTime fechaVuelta, string estado)
         {
             Viaje nuevoViaje = new Viaje(origen, destino, transporte, estancia, fechaIda, fechaVuelta, estado);
-            listViajes.Items.Add(nuevoViaje);
+            if (vistaAnyadir.AgregadoExitoso)
+            {
+                listViajes.Items.Add(nuevoViaje);
+            }
+            else
+            {
+                MessageBox.Show("El viaje no se ha añadido debido a la cancelación del pago", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void visualizarInfoViaje_Click(object sender, RoutedEventArgs e)

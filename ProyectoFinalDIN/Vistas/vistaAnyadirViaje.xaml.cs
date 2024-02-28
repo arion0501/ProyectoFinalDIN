@@ -9,7 +9,7 @@ namespace ProyectoFinalDIN
     public partial class vistaAnyadirViaje : Window
     {
         private vistaViajes ventanaPadre;
-        private vistaPago vistaPago;
+        public bool AgregadoExitoso;
 
         public vistaAnyadirViaje(vistaViajes ventanaPadre)
         {
@@ -20,6 +20,7 @@ namespace ProyectoFinalDIN
             LlenarComboBox(cbDestino, ObtenerDatosDestino());
             LlenarComboBox(cbTransporte, ObtenerDatosTransporte());
             LlenarComboBox(cbHotel, ObtenerDatosHotel());
+            AgregadoExitoso = false;
         }
 
         private void LlenarComboBox(ComboBox comboBox, List<string> datos)
@@ -64,29 +65,32 @@ namespace ProyectoFinalDIN
             {
                 MessageBox.Show("La fecha de vuelta debe ser posterior a la fecha de ida.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            else if (fechaIda.HasValue && fechaIda.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("La fecha de ida debe ser posterior o igual a la fecha actual.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             else
             {
-                MessageBox.Show("Reserva realizada con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                Random random = new Random();
+                int costoReserva = random.Next(200, 1501);
 
+                string mensaje = $"El coste de la reserva es de {costoReserva}€, pulsa aceptar para redirigirte al pago";
+                MessageBoxResult result = MessageBox.Show(mensaje, "Registrar Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                if (result == MessageBoxResult.OK)
+                {
+                    this.Close();
+                    vistaPago vistaPago = new vistaPago(costoReserva);
+                    vistaPago.ShowDialog();
+                    
+                    if (vistaPago.PagoExitoso)
+                    {
+                        AgregadoExitoso = true;
+                        MessageBox.Show("Reserva realizada con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
                 ventanaPadre.ActualizarInformacion(origen, destino, transporte, estancia, fechaIda.Value, fechaVuelta.Value, ObtenerEstadoAleatorio());
-            }
-            Random random = new Random();
-            int costoReserva = random.Next(200, 1501);
-
-            string mensaje = $"El coste de la reserva es de {costoReserva}€, pulsa aceptar para redirigirte al pago";
-            MessageBoxResult result = MessageBox.Show(mensaje, "Registrar Viaje", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            if (result == MessageBoxResult.OK)
-            {
-                this.Close();
-                AbrirVentanaPago(costoReserva);
-            }
-        }
-
-        private void AbrirVentanaPago(int costoReserva)
-        {
-            vistaPago vPago = new vistaPago(costoReserva);
-            vPago.ShowDialog();
+            }   
         }
 
         private string ObtenerEstadoAleatorio()
