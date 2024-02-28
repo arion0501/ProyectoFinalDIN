@@ -29,6 +29,12 @@ namespace ProyectoFinalDIN.Vistas
 
         private void AceptarPago_Click(object sender, RoutedEventArgs e)
         {
+            if (!(Tarjeta.IsChecked == true || Bizum.IsChecked == true || TarjetaPlazos.IsChecked == true || Cheque.IsChecked == true))
+            {
+                MessageBox.Show("Por favor, elija un método de pago antes de continuar.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             MessageBoxResult result = MessageBox.Show("¿Está seguro de que desea usar este método de pago?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result.Equals(MessageBoxResult.Yes))
             {
@@ -36,12 +42,8 @@ namespace ProyectoFinalDIN.Vistas
                 PagoExitoso = true;
                 this.Close();
             }
-            else
-            {
-
-            }
         }
-
+        
         private void CancelarPago_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmacionCancelar = MessageBox.Show("¿Está seguro de que desea cancelar el pago?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);

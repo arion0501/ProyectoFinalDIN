@@ -16,10 +16,10 @@
         <Label x:Name="txtCosto" Content="" HorizontalAlignment="Left" Margin="106,109,0,0" VerticalAlignment="Top"/>
         <Label Content="Elija el método de pago con el que desea efecutar la reserva: " Margin="106,140,0,-12" FontWeight="Bold" FontFamily="Arial"/>
 
-        <RadioButton Content="Tarjeta" HorizontalAlignment="Left" Margin="106,184,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Bizum" HorizontalAlignment="Left" Margin="106,270,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Tarjeta (a plazos con cuota 6%)" HorizontalAlignment="Left" Margin="106,242,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Cheque" HorizontalAlignment="Left" Margin="106,212,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Tarjeta" Content="Tarjeta" HorizontalAlignment="Left" Margin="106,184,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Bizum" Content="Bizum" HorizontalAlignment="Left" Margin="106,270,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="TarjetaPlazos" Content="Tarjeta (a plazos con cuota 6%)" HorizontalAlignment="Left" Margin="106,242,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Cheque" Content="Cheque" HorizontalAlignment="Left" Margin="106,212,0,0" VerticalAlignment="Top"/>
         <Button x:Name="elegirPago" Content="Seleccionar" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Foreground="#FF121313" Margin="300,19,0,0" Width="156" Height="112"  Click="AceptarPago_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FF70E3E6" Opacity="1"/>
